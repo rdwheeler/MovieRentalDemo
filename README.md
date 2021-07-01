@@ -1,9 +1,9 @@
 # Commerce
 
 This is a boilerplate project intended as a launchpad for general commerce-oriented projects. It demonstrates what we feel are the current state-of-the-art patterns and practices we will probably use in any such project. The goal is a toolbox with the *most likely* patterns we would use. As such it includes minimal versions of:
-Domain-driven Design Lite, CQRS Lite, and just enough Cloud-native patterns (Dapr)!
+Domain-driven Design, CQRS, and just enough inter-service messaging.
 
-- `Domain-driven Design` The highest level division of the applications logic is into an Interface layer and an Infrastructure layer. We just want the bones of this pattern for now, to facilitate breaking down business requiremets into user-facing things and backend activities.
+- `Domain-driven Design` The highest level division of the application's logic is into an Interface layer and an Infrastructure layer. We just want the bones of this pattern for now, to facilitate breaking down business requiremets into user-facing things and backend activities.
   - The Interface: each entry point should represent a use case, stuff the user would want to do.
   - Infrastructure: all the tools/utilities/resources (repositories, external services, message brokers, etc) that will perform the activities neccessary to accomplish use cases.
 
