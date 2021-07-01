@@ -3,13 +3,13 @@
 This is a boilerplate project intended as a launchpad for general commerce-oriented projects. It demonstrates what we feel are the current state-of-the-art patterns and practices we will probably use in any such project. The goal is a toolbox with the *most likely* patterns we would use. As such it includes minimal versions of:
 Domain-driven Design, CQRS, and just enough inter-service messaging.
 
-- `Domain-driven Design` The highest level division of the application's logic is into an Interface layer and an Infrastructure layer. We just want the bones of this pattern for now, to facilitate breaking down business requiremets into user-facing things and backend activities.
+- `Domain-driven Design` The highest level division of the application's logic is into an Interface layer and an Infrastructure layer. We just want the bones of this pattern for now, to facilitate breaking down business requirements into user-facing things and backend activities.
   - The Interface: each entry point should represent a use case, stuff the user would want to do.
-  - Infrastructure: all the tools/utilities/resources (repositories, external services, message brokers, etc) that will perform the activities neccessary to accomplish use cases.
+  - Infrastructure: all the tools/utilities/resources (repositories, external services, message brokers, etc) that will perform the activities necessary to accomplish use cases.
 
 - `Command and Query Responsibility Segregation` This framework makes us separate components into command and query parts. That may be bloat at first, but getting into this pattern early makes thigs simpler as the app grows.
 
-- `Microservices` We should be able to logically divide tools in Infrastructure into discrete projects, idnependently deployable and loosly coupled to their consumers.
+- `Microservices` We should be able to logically divide tools in Infrastructure into discrete projects, independently deployable and loosely coupled to their consumers.
 
 # Prerequisites
 
@@ -36,7 +36,6 @@ Domain-driven Design, CQRS, and just enough inter-service messaging.
 - ✔️ **[`Scrutor`](https://github.com/khellang/Scrutor)** - Assembly scanning and decoration extensions for Microsoft.Extensions.DependencyInjection
 - ✔️ **[`opentelemetry-dotnet`](https://github.com/open-telemetry/opentelemetry-dotnet)** - The OpenTelemetry .NET Client
 - ✔️ **[`BFF`](https://github.com/DuendeSoftware/BFF)** - Framework for ASP.NET Core to secure SPAs using the Backend-for-Frontend (BFF) pattern
-```
 # Starting the APIs
 
 ```
@@ -136,7 +135,7 @@ public interface IItemQuery<TId, TResponse> : IQuery<TResponse>
 }
 ```
 
-### ✔️ Create
+### Create
 
 ```csharp
 public interface ICreateCommand<TRequest, TResponse> : ICommand<TResponse>, ITxRequest
@@ -145,7 +144,7 @@ public interface ICreateCommand<TRequest, TResponse> : ICommand<TResponse>, ITxR
 }
 ```
 
-### ✔️ Update
+### Update
 
 ```csharp
 public interface IUpdateCommand<TRequest, TResponse> : ICommand<TResponse>, ITxRequest
@@ -154,7 +153,7 @@ public interface IUpdateCommand<TRequest, TResponse> : ICommand<TResponse>, ITxR
 }
 ```
 
-### ✔️ Delete
+### Delete
 
 ```csharp
 public interface IDeleteCommand<TId, TResponse> : ICommand<TResponse> where TId : struct
@@ -164,11 +163,11 @@ public interface IDeleteCommand<TId, TResponse> : ICommand<TResponse> where TId 
 ```
 
 ## Dapr components
-### ✔️ Service Invocation
+### Service Invocation
 
 - RestEase with Dapr handler.
 
-### ✔️ Event Bus
+### Event Bus
 
 ```csharp
 public interface IEventBus
